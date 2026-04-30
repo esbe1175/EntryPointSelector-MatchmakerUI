@@ -9,6 +9,17 @@ This add-on places the insertion-point workflow directly on Tarkov's raid locati
 - automatic runtime learning of extract positions as maps are loaded
 - localization-backed extract display names from the installed SPT database
 
+## Previews
+
+### ui with custom spawn enabled
+<img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/choose-spawn.png" width="500">
+
+### ui with use-previous enabled
+<img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/use-last.png" width="500">
+
+### ui with none selected (default tarkov behavior)
+<img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/none-selected.png" width="500">
+
 ## Status
 
 This plugin has been tested in-game and is fully functional with:
