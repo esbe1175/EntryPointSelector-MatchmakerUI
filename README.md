@@ -15,7 +15,11 @@ This add-on places the insertion-point workflow directly on Tarkov's raid locati
 <img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/choose-spawn.png" width="500">
 
 ### ui with use-previous enabled
-<img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/use-last.png" width="500">
+<img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/use-last-known.png" width="500">
+<details>
+   <summary>if last extract is unknown</summary>
+   <img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/use-last.png" width="500">
+</details>
 
 ### ui with none selected (default tarkov behavior)
 <img src="https://github.com/esbe1175/EntryPointSelector-MatchmakerUI/blob/main/none-selected.png" width="500">
