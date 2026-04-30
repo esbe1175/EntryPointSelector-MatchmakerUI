@@ -1,6 +1,6 @@
 # EntryPointSelector-MatchmakerUI
 
-Matchmaker UI companion for `hazelify.EntryPointSelector` on SPT.
+Matchmaker UI companion for `hazelify.EntryPointSelector` ([https://github.com/minihazel/CustomInfil](https://github.com/minihazel/CustomInfil)) on SPT.
 
 This add-on places the insertion-point workflow directly on Tarkov's raid location screen. It supports:
 
@@ -20,7 +20,7 @@ This plugin has been tested in-game and is fully functional with:
 
 This project will **not** be submitted to SPT Forge.
 
-The current [SPT Forge Content Guidelines](https://forge.sp-tarkov.com/content-guidelines) include a `No AI-Generated Mods` rule. This project was substantially produced with AI assistance, so publishing it to Forge would conflict with that policy. The code is instead provided here on GitHub for transparent inspection, local use, and manual maintenance by its owner.
+The current [SPT Forge Content Guidelines](https://forge.sp-tarkov.com/content-guidelines) include a `No AI-Generated Mods` rule. This project was substantially produced with AI assistance, so publishing it to Forge would conflict with that policy. The code is instead provided here on GitHub for any who want to use it anyway.
 
 That decision is about policy compliance, not project quality. The plugin is tested, readable, and intended to remain understandable and maintainable.
 
@@ -32,7 +32,7 @@ That decision is about policy compliance, not project quality. The plugin is tes
 
 ## Installation
 
-1. Install `hazelify.EntryPointSelector`.
+1. Install `hazelify.EntryPointSelector`. [Forge Link](https://forge.sp-tarkov.com/mod/2091/entry-point-selector)
 2. Copy `archon.EntryPointSelector.MatchmakerUI.dll` into:
    `BepInEx/plugins/archon.EntryPointSelector.MatchmakerUI/`
 3. Launch the game once so the plugin can create and maintain its runtime data files.
@@ -43,11 +43,11 @@ The plugin writes its learned extract-position catalog to:
 
 `BepInEx/plugins/archon.EntryPointSelector.MatchmakerUI/RuntimeExtractCatalog.json`
 
-This file is built from the extracts the game actually loads at runtime, so it can adapt to modded maps and extract behavior without relying on a fixed shipped seed.
+This file is built from the extracts the game actually loads at runtime, so it can adapt to modded maps (if extra extracts have been added) and extract behavior without relying on fixed data.
 
 ## Design Notes
 
-- The original `hazelify.EntryPointSelector` plugin remains the authority for insertion logic and saved spawn data.
+- The original `hazelify.EntryPointSelector` plugin remains the source of insertion logic and saved spawn data.
 - This add-on only extends the raid selection UI and reads existing saved position data from the original plugin.
 - Extract names are resolved from the installed SPT locale database first, then fall back to the original plugin's internal lists if needed.
 
