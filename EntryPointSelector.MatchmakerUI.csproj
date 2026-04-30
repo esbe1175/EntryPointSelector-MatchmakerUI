@@ -1,0 +1,93 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>archon.EntryPointSelector.MatchmakerUI</AssemblyName>
+    <RootNamespace>archon.EntryPointSelector.MatchmakerUI</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Archon</Authors>
+    <Company>Archon</Company>
+    <Description>Raid selection UI companion for EntryPointSelector on SPT.</Description>
+    <RepositoryUrl>https://github.com/esbe1175/EntryPointSelector-MatchmakerUI</RepositoryUrl>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <SPTRoot>..\..</SPTRoot>
+    <ManagedDir>$(SPTRoot)\EscapeFromTarkov_Data\Managed</ManagedDir>
+    <BepInExCoreDir>$(SPTRoot)\BepInEx\core</BepInExCoreDir>
+    <SPTPluginsDir>$(SPTRoot)\BepInEx\plugins\spt</SPTPluginsDir>
+    <OriginalPluginDir>..\hazelify.EntryPointSelector\BepInEx\plugins\hazelify.EntryPointSelector</OriginalPluginDir>
+    <FikaDir>..\Fika.Release.2.2.4 (1)\BepInEx\plugins\Fika</FikaDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(BepInExCoreDir)\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExCoreDir)\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Comfort">
+      <HintPath>$(ManagedDir)\Comfort.dll</HintPath>
+    </Reference>
+    <Reference Include="Fika.Core">
+      <HintPath>$(FikaDir)\Fika.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="hazelify.EntryPointSelector">
+      <HintPath>$(OriginalPluginDir)\hazelify.EntryPointSelector.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>$(ManagedDir)\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>$(ManagedDir)\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="spt-reflection">
+      <HintPath>$(SPTPluginsDir)\spt-reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(ManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ManagedDir)\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ManagedDir)\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(ManagedDir)\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <MakeDir Directories="$(SPTRoot)\BepInEx\plugins\archon.EntryPointSelector.MatchmakerUI" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(SPTRoot)\BepInEx\plugins\archon.EntryPointSelector.MatchmakerUI\archon.EntryPointSelector.MatchmakerUI.dll" OverwriteReadOnlyFiles="true" />
+  </Target>
+</Project>
